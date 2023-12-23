@@ -1,0 +1,31 @@
+{
+    "manifest_version": 3,
+    "name": "Etsy Listing Detail Viewer",
+    "description": "Displays the details of listings including their tags, and metadata so you can improve your store.",
+    "version": "1.0",
+    "host_permissions": ["https://www.etsy.com/*"],
+    "permissions": ["activeTab"],
+    "action": {
+        "default_popup": "popup.html",
+        "default_icon": {
+            "16": "images/icon.png",
+            "48": "images/icon.png",
+            "128": "images/icon.png"
+        }
+    },
+    "background": {
+        "service_worker": "background.js"
+    },
+
+    "content_scripts": [
+        {
+            "matches": ["https://openapi.etsy.com/*"], 
+            "js": ["content.js"]
+        }
+    ],
+    "icons": {
+        "16": "images/icon.png",
+        "48": "images/icon.png",
+        "128": "images/icon.png"
+    }
+}
